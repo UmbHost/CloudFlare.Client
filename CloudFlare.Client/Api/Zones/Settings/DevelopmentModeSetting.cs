@@ -11,7 +11,7 @@ namespace CloudFlare.Client.Api.Zones.Settings
         [JsonProperty("value")]
         public DevelopmentModeStatus Value { get; set; }
         [JsonProperty("modified_on")]
-        public DateTime ModifiedOn { get; set; }
+        public DateTime? ModifiedOn { get; set; }
         [JsonProperty("editable")]
         public bool Editable { get; set; }
     }
