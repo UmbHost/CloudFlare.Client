@@ -54,14 +54,6 @@ namespace CloudFlare.Client.Client.Zones
         Task<CloudFlareResult<Zone>> GetDetailsAsync(string zoneId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get all settings of the specified zone
-        /// </summary>
-        /// <param name="zoneId">Zone identifier</param>
-        /// <param name="cancellationToken">Cancellation token</param>
-        /// <returns></returns>
-        Task<CloudFlareResult<Settings>> GetSettingsAsync(string zoneId, CancellationToken cancellationToken = default);
-
-        /// <summary>
         /// Remove ALL files from CloudFlare's cache
         /// </summary>
         /// <param name="zoneId">Zone identifier</param>

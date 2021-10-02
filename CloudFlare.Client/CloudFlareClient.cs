@@ -14,6 +14,7 @@ namespace CloudFlare.Client
         public IAccounts Accounts { get; }
         public IUsers Users { get; }
         public IZones Zones { get; }
+        public ISettings Settings { get; }
 
         private readonly IConnection _connection;
 
@@ -31,6 +32,7 @@ namespace CloudFlare.Client
             Accounts = new Accounts(_connection);
             Users = new Users(_connection);
             Zones = new Zones(_connection);
+            Settings = new Settings(_connection);
         }
 
         /// <summary>
