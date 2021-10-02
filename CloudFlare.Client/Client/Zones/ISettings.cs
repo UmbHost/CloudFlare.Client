@@ -13,7 +13,7 @@ namespace CloudFlare.Client.Client.Zones
         /// <param name="zoneId">Zone identifier</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns></returns>
-        Task<CloudFlareResult<DevelopmentModeSetting>> GetDevelopmentModeSettingAsync(string zoneId,
+        Task<CloudFlareResult<DevelopmentModeSetting>> GetDevelopmentModeAsync(string zoneId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace CloudFlare.Client.Client.Zones
         /// <param name="newDevelopmentModeSetting">The modified development mode values</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns></returns>
-        Task<CloudFlareResult<DevelopmentModeSetting>> ToggleDevelopmentModeSettingAsync(string zoneId,
+        Task<CloudFlareResult<DevelopmentModeSetting>> ToggleDevelopmentModeAsync(string zoneId,
             NewDevelopmentModeSetting newDevelopmentModeSetting, CancellationToken cancellationToken = default);
     }
 }

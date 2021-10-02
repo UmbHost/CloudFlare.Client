@@ -1,4 +1,4 @@
-﻿using System.Threading;
+using System.Threading;
 using System.Threading.Tasks;
 using CloudFlare.Client.Api.Parameters.Endpoints;
 using CloudFlare.Client.Api.Result;
@@ -14,14 +14,14 @@ namespace CloudFlare.Client.Client.Zones
         }
 
         /// <inheritdoc />
-        public async Task<CloudFlareResult<DevelopmentModeSetting>> GetDevelopmentModeSettingAsync(string zoneId, CancellationToken cancellationToken = default)
+        public async Task<CloudFlareResult<DevelopmentModeSetting>> GetDevelopmentModeAsync(string zoneId, CancellationToken cancellationToken = default)
         {
             var requestUri = $"{SettingsEndpoints.Base}/{zoneId}/{SettingsEndpoints.Settings}/{ZoneEndpoints.DevelopmentMode}";
             return await Connection.GetAsync<DevelopmentModeSetting>(requestUri, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
-        public async Task<CloudFlareResult<DevelopmentModeSetting>> ToggleDevelopmentModeSettingAsync(string zoneId, NewDevelopmentModeSetting newDevelopmentModeSetting, CancellationToken cancellationToken = default)
+        public async Task<CloudFlareResult<DevelopmentModeSetting>> ToggleDevelopmentModeAsync(string zoneId, NewDevelopmentModeSetting newDevelopmentModeSetting, CancellationToken cancellationToken = default)
         {
             var requestUri = $"{SettingsEndpoints.Base}/{zoneId}/{SettingsEndpoints.DevelopmentMode}";
             return await Connection.PatchAsync<DevelopmentModeSetting, NewDevelopmentModeSetting>(requestUri, newDevelopmentModeSetting, cancellationToken).ConfigureAwait(false);
