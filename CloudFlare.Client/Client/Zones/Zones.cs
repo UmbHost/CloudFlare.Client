@@ -73,6 +73,13 @@ namespace CloudFlare.Client.Client.Zones
         }
 
         /// <inheritdoc />
+        public async Task<CloudFlareResult<Settings>> GetSettingsAsync(string zoneId, CancellationToken cancellationToken = default)
+        {
+            var requestUri = $"{ZoneEndpoints.Base}/{zoneId}";
+            return await Connection.GetAsync<Settings>(requestUri, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc />
         public async Task<CloudFlareResult<Zone>> PurgeAllFilesAsync(string zoneId, bool purgeEverything, CancellationToken cancellationToken = default)
         {
             var content = new Dictionary<string, bool> { { Outgoing.PurgeEverything, purgeEverything } };
