@@ -16,14 +16,14 @@ namespace CloudFlare.Client.Client.Zones
         /// <inheritdoc />
         public async Task<CloudFlareResult<DevelopmentModeSetting>> GetDevelopmentModeSettingAsync(string zoneId, CancellationToken cancellationToken = default)
         {
-            var requestUri = $"{ZoneEndpoints.Base}/{zoneId}/{ZoneEndpoints.Settings}/{ZoneEndpoints.DevelopmentMode}";
+            var requestUri = $"{SettingsEndpoints.Base}/{zoneId}/{SettingsEndpoints.Settings}/{ZoneEndpoints.DevelopmentMode}";
             return await Connection.GetAsync<DevelopmentModeSetting>(requestUri, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
         public async Task<CloudFlareResult<DevelopmentModeSetting>> ToggleDevelopmentModeSettingAsync(string zoneId, NewDevelopmentModeSetting newDevelopmentModeSetting, CancellationToken cancellationToken = default)
         {
-            var requestUri = $"{ZoneEndpoints.Base}/{zoneId}/{ZoneEndpoints.DevelopmentMode}";
+            var requestUri = $"{SettingsEndpoints.Base}/{zoneId}/{SettingsEndpoints.DevelopmentMode}";
             return await Connection.PatchAsync<DevelopmentModeSetting, NewDevelopmentModeSetting>(requestUri, newDevelopmentModeSetting, cancellationToken).ConfigureAwait(false);
         }
     }
