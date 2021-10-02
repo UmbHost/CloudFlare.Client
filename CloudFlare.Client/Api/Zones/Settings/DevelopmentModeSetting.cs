@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using CloudFlare.Client.Enumerators;
+using Newtonsoft.Json;
 
 namespace CloudFlare.Client.Api.Zones.Settings
 {
@@ -7,9 +9,9 @@ namespace CloudFlare.Client.Api.Zones.Settings
         [JsonProperty("id")]
         public string Id { get; set; }
         [JsonProperty("value")]
-        public string Value { get; set; }
+        public DevelopmentModeStatus Value { get; set; }
         [JsonProperty("modified_on")]
-        public object ModifiedOn { get; set; }
+        public DateTime ModifiedOn { get; set; }
         [JsonProperty("editable")]
         public bool Editable { get; set; }
     }
