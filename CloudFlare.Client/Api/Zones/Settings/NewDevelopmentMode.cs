@@ -3,9 +3,9 @@ using Newtonsoft.Json;
 
 namespace CloudFlare.Client.Api.Zones.Settings
 {
-    public class NewDevelopmentModeSetting
+    public class NewDevelopmentMode
     {
         [JsonProperty("value")]
-        public DevelopmentModeStatus Value { get; set; }
+        public SettingsValue Value { get; set; }
     }
 }

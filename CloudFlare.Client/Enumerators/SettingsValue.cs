@@ -8,7 +8,7 @@ namespace CloudFlare.Client.Enumerators
     /// Represents the development mode status
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum DevelopmentModeStatus
+    public enum SettingsValue
     {
         [EnumMember(Value = "on")]
         On,
