@@ -4,12 +4,12 @@ using Newtonsoft.Json;
 
 namespace CloudFlare.Client.Api.Zones.Settings
 {
-    public class DevelopmentModeSetting
+    public class AlwaysOnline
     {
         [JsonProperty("id")]
         public string Id { get; set; }
         [JsonProperty("value")]
-        public DevelopmentModeStatus Value { get; set; }
+        public SettingsValue Value { get; set; }
         [JsonProperty("modified_on")]
         public DateTime? ModifiedOn { get; set; }
         [JsonProperty("editable")]
