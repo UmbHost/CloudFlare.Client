@@ -7,48 +7,48 @@ namespace CloudFlare.Client.Enumerators
         [Description("Respect Existing Headers")]
         RespectExistingHeaders = 0,
         [Description("30 minutes")]
-        ThirtyMinutes = 30,
+        ThirtyMinutes = 1800,
         [Description("1 hour")]
-        OneHour = 60,
+        OneHour = 3600,
         [Description("2 hours")]
-        TwoHours = 120,
+        TwoHours = 7200,
         [Description("3 hours")]
-        ThreeHours = 180,
+        ThreeHours = 10800,
         [Description("4 hours")]
-        FourHours = 240,
+        FourHours = 14400,
         [Description("5 hours")]
-        FiveHours = 300,
+        FiveHours = 18000,
         [Description("8 hours")]
-        EightHours = 480,
+        EightHours = 28800,
         [Description("12 hours")]
-        TwelveHours = 720,
+        TwelveHours = 43200,
         [Description("16 hours")]
-        SixteenHours = 960,
+        SixteenHours = 57600,
         [Description("20 hours")]
-        TwentyHours = 1200,
+        TwentyHours = 72000,
         [Description("1 day")]
-        OneDay = 1440,
+        OneDay = 86400,
         [Description("2 days")]
-        TwoDays = 2880,
+        TwoDays = 172800,
         [Description("3 days")]
-        ThreeDays = 4320,
+        ThreeDays = 259200,
         [Description("4 days")]
-        FourDays = 5760,
+        FourDays = 345600,
         [Description("5 days")]
-        FiveDays = 7200,
+        FiveDays = 432000,
         [Description("8 days")]
-        EightDays = 11520,
+        EightDays = 691200,
         [Description("16 days")]
-        SixteenDays = 23040,
+        SixteenDays = 1382400,
         [Description("24 days")]
-        TwentyFourDays = 34560,
+        TwentyFourDays = 2073600,
         [Description("1 month")]
-        OneMonth = 43800,
+        OneMonth = 2628000,
         [Description("2 months")]
-        TwoMonths = 87600,
+        TwoMonths = 5256000,
         [Description("6 months")]
-        SixMonths = 262800,
+        SixMonths = 15768000,
         [Description("1 year")]
-        OneYear = 525600,
+        OneYear = 31536000,
     }
 }
