@@ -264,5 +264,12 @@ namespace CloudFlare.Client.Client.Zones
             var requestUri = $"{SettingsEndpoints.Base}/{zoneId}/{SettingsEndpoints.Settings}/{SettingsEndpoints.AutomaticHttpsRewrites}";
             return await Connection.PatchAsync<AutomaticHttpsRewrites, NewAutomaticHttpsRewrites>(requestUri, newAutomaticHttpsRewrites, cancellationToken).ConfigureAwait(false);
         }
+
+        /// <inheritdoc />
+        public async Task<CloudFlareResult<CustomPurgeCache>> CustomPurgeCacheAsync(string zoneId, NewCustomPurgeCache customPurgeCache, CancellationToken cancellationToken = default)
+        {
+            var requestUri = $"{SettingsEndpoints.Base}/{zoneId}/{SettingsEndpoints.PurgeCache}";
+            return await Connection.PostAsync<CustomPurgeCache, NewCustomPurgeCache>(requestUri, customPurgeCache, cancellationToken).ConfigureAwait(false);
+        }
     }
 }

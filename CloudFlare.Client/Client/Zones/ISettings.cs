@@ -148,5 +148,8 @@ namespace CloudFlare.Client.Client.Zones
 
         Task<CloudFlareResult<AutomaticHttpsRewrites>> ToggleAutomaticHttpsRewritesAsync(string zoneId,
             NewAutomaticHttpsRewrites newAutomaticHttpsRewrites, CancellationToken cancellationToken = default);
+
+        Task<CloudFlareResult<CustomPurgeCache>> CustomPurgeCacheAsync(string zoneId,
+            NewCustomPurgeCache customPurgeCache, CancellationToken cancellationToken = default);
     }
 }

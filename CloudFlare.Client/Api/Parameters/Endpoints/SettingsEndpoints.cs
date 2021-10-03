@@ -22,5 +22,6 @@
         public const string RocketLoader = "rocket_loader";
         public const string SecurityHeaderHsts = "security_header";
         public const string AutomaticHttpsRewrites = "automatic_https_rewrites";
+        public const string PurgeCache = "purge_cache";
     }
 }
