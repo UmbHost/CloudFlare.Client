@@ -151,5 +151,17 @@ namespace CloudFlare.Client.Client.Zones
 
         Task<CloudFlareResult<CustomPurgeCache>> CustomPurgeCacheAsync(string zoneId,
             NewCustomPurgeCache customPurgeCache, CancellationToken cancellationToken = default);
+
+        Task<CloudFlareResult<OpportunisticEncryption>> GetOpportunisticEncryptionAsync(string zoneId,
+            CancellationToken cancellationToken = default);
+
+        Task<CloudFlareResult<OpportunisticEncryption>> ToggleOpportunisticEncryptionAsync(string zoneId,
+            NewOpportunisticEncryption newOpportunisticEncryption, CancellationToken cancellationToken = default);
+
+        Task<CloudFlareResult<MinimumTlsVersion>> GetMinimumTlsVersionAsync(string zoneId,
+            CancellationToken cancellationToken = default);
+
+        Task<CloudFlareResult<MinimumTlsVersion>> ToggleMinimumTlsVersionAsync(string zoneId,
+            NewMinimumTlsVersion newMinimumTlsVersion, CancellationToken cancellationToken = default);
     }
 }

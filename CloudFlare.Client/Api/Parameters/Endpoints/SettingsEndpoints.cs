@@ -23,5 +23,7 @@
         public const string SecurityHeaderHsts = "security_header";
         public const string AutomaticHttpsRewrites = "automatic_https_rewrites";
         public const string PurgeCache = "purge_cache";
+        public const string OpportunisticEncryption = "opportunistic_encryption";
+        public const string MinimumTlsVersion = "min_tls_version";
     }
 }

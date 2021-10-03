@@ -43,11 +43,11 @@ namespace CloudFlare.Client.Enumerators
         [Description("24 days")]
         TwentyFourDays = 2073600,
         [Description("1 month")]
-        OneMonth = 2628000,
+        OneMonth = 2678400,
         [Description("2 months")]
-        TwoMonths = 5256000,
+        TwoMonths = 5356800,
         [Description("6 months")]
-        SixMonths = 15768000,
+        SixMonths = 16070400,
         [Description("1 year")]
         OneYear = 31536000,
     }

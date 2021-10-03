@@ -42,6 +42,20 @@ namespace CloudFlare.Client.Client.Zones
         }
 
         /// <inheritdoc />
+        public async Task<CloudFlareResult<OpportunisticEncryption>> GetOpportunisticEncryptionAsync(string zoneId, CancellationToken cancellationToken = default)
+        {
+            var requestUri = $"{SettingsEndpoints.Base}/{zoneId}/{SettingsEndpoints.Settings}/{SettingsEndpoints.OpportunisticEncryption}";
+            return await Connection.GetAsync<OpportunisticEncryption>(requestUri, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc />
+        public async Task<CloudFlareResult<OpportunisticEncryption>> ToggleOpportunisticEncryptionAsync(string zoneId, NewOpportunisticEncryption newOpportunisticEncryption, CancellationToken cancellationToken = default)
+        {
+            var requestUri = $"{SettingsEndpoints.Base}/{zoneId}/{SettingsEndpoints.Settings}/{SettingsEndpoints.OpportunisticEncryption}";
+            return await Connection.PatchAsync<OpportunisticEncryption, NewOpportunisticEncryption>(requestUri, newOpportunisticEncryption, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc />
         public async Task<CloudFlareResult<OpportunisticOnion>> GetOpportunisticOnionAsync(string zoneId, CancellationToken cancellationToken = default)
         {
             var requestUri = $"{SettingsEndpoints.Base}/{zoneId}/{SettingsEndpoints.Settings}/{SettingsEndpoints.OpportunisticOnion}";
@@ -270,6 +284,21 @@ namespace CloudFlare.Client.Client.Zones
         {
             var requestUri = $"{SettingsEndpoints.Base}/{zoneId}/{SettingsEndpoints.PurgeCache}";
             return await Connection.PostAsync<CustomPurgeCache, NewCustomPurgeCache>(requestUri, customPurgeCache, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc />
+        public async Task<CloudFlareResult<MinimumTlsVersion>> GetMinimumTlsVersionAsync(string zoneId,
+            CancellationToken cancellationToken = default)
+        {
+            var requestUri = $"{SettingsEndpoints.Base}/{zoneId}/{SettingsEndpoints.Settings}/{SettingsEndpoints.MinimumTlsVersion}";
+            return await Connection.GetAsync<MinimumTlsVersion>(requestUri, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc />
+        public async Task<CloudFlareResult<MinimumTlsVersion>> ToggleMinimumTlsVersionAsync(string zoneId, NewMinimumTlsVersion newMinimumTlsVersion, CancellationToken cancellationToken = default)
+        {
+            var requestUri = $"{SettingsEndpoints.Base}/{zoneId}/{SettingsEndpoints.Settings}/{SettingsEndpoints.MinimumTlsVersion}";
+            return await Connection.PatchAsync<MinimumTlsVersion, NewMinimumTlsVersion>(requestUri, newMinimumTlsVersion, cancellationToken).ConfigureAwait(false);
         }
     }
 }

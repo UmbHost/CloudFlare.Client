@@ -1,4 +1,5 @@
 ﻿using System;
+using CloudFlare.Client.Enumerators;
 using Newtonsoft.Json;
 
 namespace CloudFlare.Client.Api.Zones.Settings
@@ -26,7 +27,7 @@ namespace CloudFlare.Client.Api.Zones.Settings
         [JsonProperty("enabled")]
         public bool Enabled { get; set; }
         [JsonProperty("max_age")]
-        public int MaxAge { get; set; }
+        public HstsMaxAge MaxAge { get; set; }
         [JsonProperty("include_subdomains")]
         public bool IncludeSubdomains { get; set; }
         [JsonProperty("preload")]
