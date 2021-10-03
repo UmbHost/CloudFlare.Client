@@ -8,7 +8,7 @@ namespace CloudFlare.Client.Api.Zones.Settings
         [JsonProperty("id")]
         public string Id { get; set; }
         [JsonProperty("value")]
-        public int Value { get; set; }
+        public Enumerators.BrowserCacheTtl Value { get; set; }
         [JsonProperty("modified_on")]
         public DateTime? ModifiedOn { get; set; }
         [JsonProperty("editable")]
