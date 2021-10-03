@@ -170,7 +170,7 @@ namespace CloudFlare.Client.Client.Zones
         /// <inheritdoc />
         public async Task<CloudFlareResult<Minify>> GetMinifyAsync(string zoneId, CancellationToken cancellationToken = default)
         {
-            var requestUri = $"{SettingsEndpoints.Base}/{zoneId}/{SettingsEndpoints.Settings}/{SettingsEndpoints.Settings}/{SettingsEndpoints.Minify}";
+            var requestUri = $"{SettingsEndpoints.Base}/{zoneId}/{SettingsEndpoints.Settings}/{SettingsEndpoints.Minify}";
             return await Connection.GetAsync<Minify>(requestUri, cancellationToken).ConfigureAwait(false);
         }
 
