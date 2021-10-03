@@ -1,9 +1,7 @@
 ﻿using System.ComponentModel;
-using Newtonsoft.Json;
 
 namespace CloudFlare.Client.Enumerators
 {
-    [JsonConverter(typeof(int))]
     public enum BrowserCacheTtl
     {
         [Description("Respect Existing Headers")]
