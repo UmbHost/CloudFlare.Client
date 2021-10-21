@@ -163,5 +163,7 @@ namespace CloudFlare.Client.Client.Zones
 
         Task<CloudFlareResult<MinimumTlsVersion>> ToggleMinimumTlsVersionAsync(string zoneId,
             NewMinimumTlsVersion newMinimumTlsVersion, CancellationToken cancellationToken = default);
+
+        Task<AllSettings> GetAllZoneSettingsAsync(string zoneId, CancellationToken cancellationToken = default);
     }
 }

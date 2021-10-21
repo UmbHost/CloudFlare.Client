@@ -1,9 +1,13 @@
-﻿using System.Threading;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using CloudFlare.Client.Api.Parameters.Endpoints;
 using CloudFlare.Client.Api.Result;
 using CloudFlare.Client.Api.Zones.Settings;
 using CloudFlare.Client.Contexts;
+using Newtonsoft.Json.Linq;
 
 namespace CloudFlare.Client.Client.Zones
 {
@@ -299,6 +303,101 @@ namespace CloudFlare.Client.Client.Zones
         {
             var requestUri = $"{SettingsEndpoints.Base}/{zoneId}/{SettingsEndpoints.Settings}/{SettingsEndpoints.MinimumTlsVersion}";
             return await Connection.PatchAsync<MinimumTlsVersion, NewMinimumTlsVersion>(requestUri, newMinimumTlsVersion, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc />
+        public async Task<AllSettings> GetAllZoneSettingsAsync(string zoneId, CancellationToken cancellationToken = default)
+        {
+            var requestUri = $"{SettingsEndpoints.Base}/{zoneId}/{SettingsEndpoints.Settings}";
+            var response = await Connection.GetAsync<JArray>(requestUri, cancellationToken).ConfigureAwait(false);
+            return GetZoneSetting(response.Result.Cast<JObject>());
+        }
+
+        private static AllSettings GetZoneSetting(IEnumerable<JObject> jsons)
+        {
+            if (jsons == null)
+                throw new ArgumentNullException(nameof(jsons));
+
+            var allSettings = new AllSettings();
+
+            foreach (JObject json in jsons)
+            {
+                JToken idToken = json["id"];
+                if (idToken == null)
+                {
+                    throw new InvalidOperationException($"The setting does not have an id property.\n{json}");
+                }
+
+                string id = idToken.Value<string>();
+
+                switch (id)
+                {
+                    case "always_online":
+                        allSettings.AlwaysOnline = json.ToObject<AlwaysOnline>();
+                        break;
+                    case "always_use_https":
+                        allSettings.AlwaysUseHttps = json.ToObject<AlwaysUseHttps>();
+                        break;
+                    case "automatic_https_rewrites":
+                        allSettings.AutomaticHttpsRewrites = json.ToObject<AutomaticHttpsRewrites>();
+                        break;
+                    case "brotli":
+                        allSettings.Brotli = json.ToObject<Brotli>();
+                        break;
+                    case "browser_check":
+                        allSettings.BrowserCheck = json.ToObject<BrowserCheck>();
+                        break;
+                    case "email_obfuscation":
+                        allSettings.EmailObfuscation = json.ToObject<EmailObfuscation>();
+                        break;
+                    case "hotlink_protection":
+                        allSettings.HotlinkProtection = json.ToObject<HotlinkProtection>();
+                        break;
+                    case "ip_geolocation":
+                        allSettings.IpGeolocation = json.ToObject<IpGeolocation>();
+                        break;
+                    case "mirage":
+                        allSettings.Mirage = json.ToObject<Mirage>();
+                        break;
+                    case "browser_cache_ttl":
+                        allSettings.BrowserCacheTtl = json.ToObject<BrowserCacheTtl>();
+                        break;
+                    case "cache_level":
+                        allSettings.CacheLevel = json.ToObject<CacheLevel>();
+                        break;
+                    case "polish":
+                        allSettings.Polish = json.ToObject<Polish>();
+                        break;
+                    case "rocket_loader":
+                        allSettings.RocketLoader = json.ToObject<RocketLoader>();
+                        break;
+                    case "development_mode":
+                        allSettings.DevelopmentMode = json.ToObject<DevelopmentMode>();
+                        break;
+                    case "minify":
+                        allSettings.Minify = json.ToObject<Minify>();
+                        break;
+                    case "security_header":
+                        allSettings.SecurityHeaderHsts = json.ToObject<SecurityHeaderHsts>();
+                        break;
+                    case "opportunistic_onion":
+                        allSettings.OpportunisticOnion = json.ToObject<OpportunisticOnion>();
+                        break;                    
+                    case "min_tls_version":
+                        allSettings.MinimumTlsVersion = json.ToObject<MinimumTlsVersion>();
+                        break;
+                    case "webp":
+                        allSettings.WebP = json.ToObject<WebP>();
+                        break;
+                    case "opportunistic_encryption":
+                        allSettings.OpportunisticEncryption = json.ToObject<OpportunisticEncryption>();
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            return allSettings;
         }
     }
 }
