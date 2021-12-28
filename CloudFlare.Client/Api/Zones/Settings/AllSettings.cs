@@ -22,5 +22,6 @@
         public SecurityHeaderHsts SecurityHeaderHsts {  get; set; }
         public WebP WebP { get; set; }
         public MinimumTlsVersion MinimumTlsVersion { get; set; }
+        public EarlyHints EarlyHints { get; set; }
     }
 }

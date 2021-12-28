@@ -46,6 +46,25 @@ namespace CloudFlare.Client.Client.Zones
             CancellationToken cancellationToken = default);
 
         /// <summary>
+        /// Get the early hints setting of the specified zone
+        /// </summary>
+        /// <param name="zoneId">Zone identifier</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns></returns>
+        Task<CloudFlareResult<EarlyHints>> GetEarlyHintsAsync(string zoneId,
+            CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Toggle the early hints setting of the specified zone
+        /// </summary>
+        /// <param name="zoneId">Zone identifier</param>
+        /// <param name="newEarlyHints">The modified early hints values</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns></returns>
+        Task<CloudFlareResult<EarlyHints>> ToggleEarlyHintsAsync(string zoneId, NewEarlyHints newEarlyHints,
+            CancellationToken cancellationToken = default);
+
+        /// <summary>
         /// Get the opportunist onion setting of the specified zone
         /// </summary>
         /// <param name="zoneId">Zone identifier</param>

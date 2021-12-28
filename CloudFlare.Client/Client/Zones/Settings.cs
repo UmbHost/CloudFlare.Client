@@ -32,6 +32,20 @@ namespace CloudFlare.Client.Client.Zones
         }
 
         /// <inheritdoc />
+        public async Task<CloudFlareResult<EarlyHints>> GetEarlyHintsAsync(string zoneId, CancellationToken cancellationToken = default)
+        {
+            var requestUri = $"{SettingsEndpoints.Base}/{zoneId}/{SettingsEndpoints.Settings}/{SettingsEndpoints.EarlyHints}";
+            return await Connection.GetAsync<EarlyHints>(requestUri, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc />
+        public async Task<CloudFlareResult<EarlyHints>> ToggleEarlyHintsAsync(string zoneId, NewEarlyHints newEarlyHints, CancellationToken cancellationToken = default)
+        {
+            var requestUri = $"{SettingsEndpoints.Base}/{zoneId}/{SettingsEndpoints.Settings}/{SettingsEndpoints.EarlyHints}";
+            return await Connection.PatchAsync<EarlyHints, NewEarlyHints>(requestUri, newEarlyHints, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc />
         public async Task<CloudFlareResult<AlwaysOnline>> GetAlwaysOnlineAsync(string zoneId, CancellationToken cancellationToken = default)
         {
             var requestUri = $"{SettingsEndpoints.Base}/{zoneId}/{SettingsEndpoints.Settings}/{SettingsEndpoints.AlwaysOnline}";
@@ -391,6 +405,9 @@ namespace CloudFlare.Client.Client.Zones
                         break;
                     case "opportunistic_encryption":
                         allSettings.OpportunisticEncryption = json.ToObject<OpportunisticEncryption>();
+                        break;
+                    case "early_hints":
+                        allSettings.EarlyHints = json.ToObject<EarlyHints>();
                         break;
                     default:
                         break;

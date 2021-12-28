@@ -1,11 +1,10 @@
-﻿using CloudFlare.Client.Enumerators;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace CloudFlare.Client.Api.Zones.Settings
 {
-    public class NewAlwaysOnline
+    public class NewCacheLevel
     {
         [JsonProperty("value")]
-        public SettingsValue Value { get; set; }
+        public Enumerators.CacheLevel Value { get; set; }
     }
 }
