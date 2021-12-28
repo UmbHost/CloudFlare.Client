@@ -4,6 +4,18 @@ namespace CloudFlare.Client.Api.Zones.Settings
 {
     public class NewSecurityHeaderHsts
     {
+        [JsonProperty("value")]
+        public NewStrictTransportSecurity Value { get; set; }
+    }
+
+    public class NewStrictTransportSecurity
+    {
+        [JsonProperty("strict_transport_security")]
+        public NewStrictTransportSecurityValues StrictTransportSecurity { get; set; }
+    }
+
+    public class NewStrictTransportSecurityValues
+    {
         [JsonProperty("enabled")]
         public bool Enabled { get; set; }
         [JsonProperty("max_age")]

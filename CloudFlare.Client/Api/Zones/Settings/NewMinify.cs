@@ -5,6 +5,12 @@ namespace CloudFlare.Client.Api.Zones.Settings
 {
     public class NewMinify
     {
+        [JsonProperty("value")]
+        public MinifyValue Value { get; set; }
+    }
+
+    public class MinifyValue
+    {
         [JsonProperty("css")]
         public SettingsValue Css { get; set; }
         [JsonProperty("html")]
