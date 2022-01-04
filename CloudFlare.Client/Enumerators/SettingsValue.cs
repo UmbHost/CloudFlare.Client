@@ -13,6 +13,10 @@ namespace CloudFlare.Client.Enumerators
         [EnumMember(Value = "on")]
         On,
         [EnumMember(Value = "off")]
-        Off
+        Off,
+        [EnumMember(Value = "lossless")]
+        Lossless,
+        [EnumMember(Value = "lossy")]
+        Lossy
     }
 }
